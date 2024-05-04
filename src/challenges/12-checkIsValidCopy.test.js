@@ -1,4 +1,4 @@
-import { checkIsValidCopy } from './12-checkIsValidCopy'
+import checkIsValidCopy from './12-checkIsValidCopy'
 
 // tests
 describe('checkIsValidCopy', () => {

@@ -1,21 +1,27 @@
-export function getIndexsForPalindrome(word) {
-  // Check if the word contains only alphabets. If not, throw an error.
+/**
+ * This function finds the indices of the characters that need to be swapped to make the word a palindrome.
+ * @param {string} word - The word to be checked.
+ * @returns {number[]|null} The indices of the characters that need to be swapped, or null if the word cannot be rearranged into a palindrome.
+ * @throws {Error} If the input is not a valid string.
+ */
+function getIndexsForPalindrome(word) {
+  // Validate input: it should be a non-empty string containing only alphabets
   if (!/^[a-z]+$/i.test(word)) {
     throw new Error('Argument must be a valid string')
   }
 
-  // If the word is a palindrome, return an empty array.
+  // If the word is already a palindrome, return an empty array
   if (word === [...word].reverse().join('')) {
     return []
   }
 
-  // Initialize variables to count the letters in the word.
+  // Initialize variables for counting letters and tracking odd counts
   let letterCounts = {}
   let letter
   let oddCount = 0
   let oddLetter = ''
 
-  // Count the occurrence of each letter in the word.
+  // Count the occurrence of each letter in the word
   for (let i = 0; i < word.length; i++) {
     letter = word[i]
     letterCounts[letter] = letterCounts[letter] || 0
@@ -34,10 +40,12 @@ export function getIndexsForPalindrome(word) {
   if (oddCount > 1) {
     return null
   }
+
   // Find the indices of the characters that need to be swapped
   let firstIndex = word.indexOf(oddLetter)
   let lastIndex = word.lastIndexOf(oddLetter)
 
+  // If the odd letter occurs only once, swap it with the middle character
   if (firstIndex === lastIndex) {
     let swappedIndex = [(word.length - 1) / 2, firstIndex]
     let wordArray = word.split('')
@@ -51,6 +59,7 @@ export function getIndexsForPalindrome(word) {
     }
   }
 
+  // If the odd letter occurs more than once, find the characters that need to be swapped to make the word a palindrome
   if (firstIndex !== lastIndex) {
     let leftIndex = 0
     let rightIndex = word.length - 1
@@ -67,5 +76,8 @@ export function getIndexsForPalindrome(word) {
     }
   }
 
+  // If no characters need to be swapped, return null
   return null
 }
+
+export default getIndexsForPalindrome

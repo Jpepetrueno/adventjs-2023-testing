@@ -1,24 +1,30 @@
+/**
+ * This function finds the first repeated element in an array of gifts.
+ * @param {string[]} gifts - An array of gifts, each represented as a string.
+ * @returns {string|number} The first repeated gift if any, otherwise -1.
+ * @throws {Error} Will throw an error if the input is not a non-empty array.
+ */
 function findFirstRepeated(gifts) {
+  // Validate input: it should be a non-empty array
   if (Array.isArray(gifts) === false || gifts.length === 0) {
     throw new Error('Invalid input')
   }
 
-  // This line creates a new Set object 'idSet'. A Set is a collection of unique values.
+  // Create a new Set to store unique gifts
   let idSet = new Set()
 
+  // Iterate over the gifts array
   for (let i = 0; i < gifts.length; i++) {
-    // This line checks if the current element already exists in the 'idSet'.
-    // If it does, that means it's a repeated element, so it returns that element.
+    // If the gift is already in the Set, it's a repeated gift. Return it.
     if (idSet.has(gifts[i])) {
       return gifts[i]
     }
 
-    // If the current element doesn't exist in the 'idSet', it adds the element to the 'idSet'.
+    // If the gift is not in the Set, add it to the Set
     idSet.add(gifts[i])
   }
 
-  // If the function hasn't returned yet after the loop, that means there are no repeated elements.
-  // So it returns -1 to indicate no repetition found.
+  // If no repeated gift is found after checking all gifts, return -1
   return -1
 }
 

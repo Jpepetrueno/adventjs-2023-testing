@@ -22,9 +22,7 @@ export function organizeGifts(gifts) {
     /[^a-z0-9]/i.test(gifts) ||
     /[a-z]{2,}/.test(gifts)
   ) {
-    throw new Error(
-      'Argument must be a string with regex pattern /^[1-9]\\d*[a-z]/ and contain only letters a-z and numbers 0-9, and a letter must always be preceded by at least one number different to 0 '
-    )
+    throw new Error('The argument is an incorrect input.')
   }
 
   const regex = /(\d+)([a-z])/g

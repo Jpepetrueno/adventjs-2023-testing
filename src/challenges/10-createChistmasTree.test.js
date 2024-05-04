@@ -1,4 +1,4 @@
-import { createChristmasTree } from './10-createChistmasTree'
+import createChristmasTree from './10-createChistmasTree'
 
 describe('createChristmasTree', () => {
   // Verifica si createChristmasTree es una función.

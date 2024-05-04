@@ -1,4 +1,4 @@
-import { getIndexsForPalindrome } from './11-getIndexForPalindrome'
+import getIndexsForPalindrome from './11-getIndexForPalindrome'
 
 // tests
 describe('getIndexsForPalindrome', () => {

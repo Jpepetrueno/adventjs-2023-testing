@@ -1,5 +1,12 @@
+/**
+ * This function checks if a copy of a string is a valid degradation of the original string.
+ * @param {string|number} original - The original string.
+ * @param {string|number} copy - The copy string.
+ * @returns {boolean} True if the copy is a valid degradation of the original, false otherwise.
+ * @throws {Error} If the inputs are invalid.
+ */
 export function checkIsValidCopy(original, copy) {
-  // Check if both arguments are provided
+  // Validate input: both arguments must be provided
   if (!original || !copy) {
     throw new Error('both arguments must be received')
   }
@@ -8,17 +15,16 @@ export function checkIsValidCopy(original, copy) {
   if (typeof original === 'number') {
     original = original.toString()
   }
-
   if (typeof copy === 'number') {
     copy = copy.toString()
   }
 
-  // Check if both arguments are strings
+  // Validate input: both arguments must be strings
   if (typeof original !== 'string' || typeof copy !== 'string') {
     throw new Error('both arguments must be strings')
   }
 
-  // Check if both arguments have the same length
+  // If the original and copy strings have different lengths, the copy is not a valid degradation
   if (original.length !== copy.length) {
     return false
   }
@@ -69,3 +75,5 @@ export function checkIsValidCopy(original, copy) {
   // If all characters in the copy are valid degradations of the original characters, return true
   return true
 }
+
+export default checkIsValidCopy

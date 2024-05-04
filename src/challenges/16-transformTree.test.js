@@ -1,4 +1,4 @@
-import { transformTree } from './16-transformTree.js'
+import transformTree from './16-transformTree.js'
 
 describe('transformTree', () => {
   test('should throw an error if the input is not an array', () => {
