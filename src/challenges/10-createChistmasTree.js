@@ -43,7 +43,3 @@ export function createChristmasTree(ornaments, height) {
   // Devuelve el árbol.
   return tree
 }
-
-let ornaments = '******happy**new**year******'
-let height = ornaments.length
-console.log(createChristmasTree(ornaments, height))

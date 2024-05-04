@@ -1,5 +1,4 @@
-// Function to transform an array representation of a binary tree into an object representation
-function transformTree(tree) {
+export function transformTree(tree) {
   // Check if the input is an array and if all elements are either numbers or null
   if (
     !Array.isArray(tree) ||
@@ -31,6 +30,3 @@ function transformTree(tree) {
 
   return root
 }
-
-// Export the transformTree function as the default export
-export default transformTree
